@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Route::namespace ('App\Http\Controllers')->group(function () {
-    Route::get('pics', 'Usercontroller@show');
+    // Route::get('pics', 'Usercontroller@show');
     Route::get('exm1120', 'SiteController@test');
+    Route::get('pics', 'Usercontroller@inc');
 
 });

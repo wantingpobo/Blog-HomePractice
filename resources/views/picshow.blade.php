@@ -13,6 +13,12 @@
 <div class="container">
   <h1>Gallery</h1>
 
+  {{-- @include('includes.model',['text'=>'test1126']) --}}
+  @include('includes.model')
+
+ {{-- 全域共用變數 --}}
+ {{ $global }}
+
   <div class="gallery-wrap">
     <div class="item item-1"></div>
     <div class="item item-2"></div>
