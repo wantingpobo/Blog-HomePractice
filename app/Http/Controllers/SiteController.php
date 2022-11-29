@@ -8,8 +8,10 @@ class SiteController extends Controller
 {
     public function test(Request $request)
     {
-        //取得用戶所有資料
-        dd($request->all());
+        return $request->all();
+
+        //取得用戶所有資料 //dd是顯示在網頁
+        // dd($request->all());
 
         //確認欄位是否有填寫>顯示ture或false
         // dd($request->filled('title'));
