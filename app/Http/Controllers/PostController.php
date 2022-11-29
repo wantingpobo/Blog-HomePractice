@@ -105,4 +105,11 @@ class PostController extends Controller
     {
         //
     }
+
+    public function doany(Request $request)
+    {
+        return $request->all();
+
+    }
+
 }
