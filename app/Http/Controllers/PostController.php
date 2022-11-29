@@ -54,7 +54,6 @@ class PostController extends Controller
     {
         return $request->all();
 
-
         //儲存所有資料後返回index
         return redirect(url('posts/' . 1));
     }
