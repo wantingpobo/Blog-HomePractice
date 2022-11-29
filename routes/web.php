@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,13 @@ Route::get('/', function () {
 
 Route::namespace ('App\Http\Controllers')->group(function () {
     // Route::get('pics', 'Usercontroller@show');
-    Route::get('exm1120', 'SiteController@test');
-    Route::get('pics', 'Usercontroller@inc');
+    Route::get('/exm1120', 'SiteController@test');
+    Route::get('/pics', 'Usercontroller@inc');
+    Route::resource('/posts', 'PostController');
+});
 
+route::get('/url', function () {
+    //取得網址
+    // return url('/pics');
+    return action([Usercontroller::class, 'inc']);
 });
