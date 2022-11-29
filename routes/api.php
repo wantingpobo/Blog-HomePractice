@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //指令:php artisan make:controller Api/PostController --api
 Route::ApiResource('posts', 'App\Http\Controllers\Api\PostController');
+
+Route::Any('/getclientpics', 'App\Http\Controllers\Api\PostController@getfiles');
