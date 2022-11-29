@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+
 // use Dotenv\Validator;
-use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -52,25 +53,25 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //驗證用戶提交的資料
-        $Validator = Validator::make($request->all(), [
-            'title' => 'required | max:10',
-            'desc' => 'required',
+        // $Validator = Validator::make($request->all(), [
+        //     'title' => 'required | max:10',
+        //     'desc' => 'required',
 
-        ]);
+        // ]);
 
-        if ($Validator->fails()) {
-            // dd($Validator);
-            return $Validator;
-        }
+        // if ($Validator->fails()) {
+        //     // dd($Validator);
+        //     return $Validator;
+        // }
         return 'ok';
 
         // return $request->all();
 
         //儲存所有資料後返回index
-        return redirect(url('posts/' . 1));
+        // return redirect(url('posts/' . 1));
     }
 
     /**
