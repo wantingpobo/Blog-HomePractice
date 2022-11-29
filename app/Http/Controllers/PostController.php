@@ -13,13 +13,13 @@ class PostController extends Controller
         //->呼叫middleware,寫入auth這個中介層
 
         //一次對這個控制器的所有的方法做控管
-        //$this->middleware('auth');
+        // $this->middleware('auth');
 
         //只對index做控管
-        //$this->middleware('auth')->only('index');
+        // $this->middleware('auth')->only('index');
 
         //除了index,其他都控管
-        $this->middleware('auth')->except('index');
+        // $this->middleware('auth')->except('index');
 
     }
 
@@ -52,7 +52,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
+
+
+        //儲存所有資料後返回index
+        return redirect(url('posts/' . 1));
     }
 
     /**

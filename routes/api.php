@@ -21,7 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //指令:php artisan make:controller SiteController
 //一次套用所有resouce的七種方法
 //指令:php artisan route:list確認
-Route::resource('/posts', 'App\Http\Controllers\PostController');
 
 //指令:php artisan make:controller Api/PostController --api
 //Route::ApiResource('posts', 'App\Http\Controllers\Api\PostController');
