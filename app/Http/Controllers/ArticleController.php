@@ -2,30 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
-// use Dotenv\Validator;
-
-class PostController extends Controller
+class ArticleController extends Controller
 {
-    //建構值
-    public function __construct()
-    {
-        //$this指的是目前所在的PostController
-        //->呼叫middleware,寫入auth這個中介層
-
-        //一次對這個控制器的所有的方法做控管
-        // $this->middleware('auth');
-
-        //只對index做控管
-        // $this->middleware('auth')->only('index');
-
-        //除了index,其他都控管
-        // $this->middleware('auth')->except('index');
-
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -33,8 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return "所有文章";
-
+        //
     }
 
     /**
@@ -44,7 +24,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $category = ['1' => '分類1', '2' => '分類2', '3' => '分類3'];
+        return view('articles.create', compact('category'));
     }
 
     /**
@@ -53,25 +34,22 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(ArticleRequest $request)
     {
-        //驗證用戶提交的資料
-        // $Validator = Validator::make($request->all(), [
-        //     'title' => 'required | max:10',
-        //     'desc' => 'required',
+        return $request->all();
 
-        // ]);
-
-        // if ($Validator->fails()) {
-        //     // dd($Validator);
-        //     return $Validator;
-        // }
+        if ($request->hasFile('pic')) {
+            $file = $request->file('pic'); //獲取UploadFile例項
+            if ($file->isValid()) { //判斷檔案是否有效
+                //$filename = $file->getClientOriginalName(); //檔案原名稱
+                $extension = $file->getClientOriginalExtension(); //副檔名
+                $filename = time() . "." . $extension; //重新命名
+                // $data['pic'] = $filename;
+                $path = $file->storeAs('/pic', $filename); //儲存至指定目錄
+            }
+        }
         return 'ok';
 
-        // return $request->all();
-
-        //儲存所有資料後返回index
-        // return redirect(url('posts/' . 1));
     }
 
     /**
@@ -80,12 +58,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    //route規則寫在api.php裡的
-    //Route::resource('posts', 'App\Http\Controllers\PostController');
     public function show($id)
     {
-        return "文章 $id";
+        //
     }
 
     /**
@@ -121,11 +96,4 @@ class PostController extends Controller
     {
         //
     }
-
-    public function doany(Request $request)
-    {
-        return $request->all();
-
-    }
-
 }
