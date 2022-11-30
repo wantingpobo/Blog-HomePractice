@@ -30,7 +30,7 @@ Route::Any('/getclientpics', 'App\Http\Controllers\Api\PostController@getfiles')
 // Route::ApiResource('items', 'App\Http\Controllers\Api\ItemController');
 
 Route::namespace ('App\Http\Controllers\Api')->group(function () {
-    Route::ApiResource('posts', 'PostController');
+    // Route::ApiResource('posts', 'PostController');
     Route::ApiResource('items', 'ItemController');
 
 });
