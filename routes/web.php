@@ -32,3 +32,21 @@ route::get('/url', function () {
     // return url('/pics');
     return action([Usercontroller::class, 'inc']);
 });
+
+// -------------------------------------------------------
+
+// //字串轉陣列
+// Route::get('/toarray', function () {
+//     $str = '1,2,3';
+//     $ary = explode(',', $str);
+//     dd($ary);
+// });
+
+// //陣列轉字串
+// Route::get('/tostring', function () {
+//     $ary = ['1', '2', '3'];
+//     $str = implode(',', $ary);
+//     dd($str);
+// });
+
+// -------------------------------------------------------
