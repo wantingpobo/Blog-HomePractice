@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('cgies', function (Blueprint $table) {
             $table->id();
             $table->string('subject', 100);
-            $table->bigInteger('cgy_id');
+            $table->string('pic', 255)->nullable();
+            $table->text('desc')->nullable();
+            $table->boolean('enabled')->default(true);
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('cgies');
     }
 };

@@ -43,10 +43,10 @@ route::get('/url', function () {
 // });
 
 // //陣列轉字串
-// Route::get('/tostring', function () {
-//     $ary = ['1', '2', '3'];
-//     $str = implode(',', $ary);
-//     dd($str);
-// });
+Route::get('/tostring', function () {
+    $ary = ['1', '2', '3'];
+    $str = implode(',', $ary);
+    dd($str);
+});
 
 // -------------------------------------------------------

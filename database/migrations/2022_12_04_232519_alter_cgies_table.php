@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('subject', 100);
-            $table->bigInteger('cgy_id');
-            $table->timestamps();
+        Schema::table('cgies', function (Blueprint $table) {
+            $table->renameColum('subject', 'title');
+            $table->integer('sort')->nullable()->default(null)->change();
         });
     }
 
@@ -28,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::table('cgies', function (Blueprint $table) {
+            $table->renameColum('title', 'subject');
+            $table->integer('sort')->nullable(false)->defult(0)->change();
+        });
     }
 };
