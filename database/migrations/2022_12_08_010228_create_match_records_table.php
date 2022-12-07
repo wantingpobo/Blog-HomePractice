@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->float('rate');
             $table->string('chatroom_lasting', 50);
-            $table->bigInteger('relation_shop_users_id');
+            $table->bigInteger('relation_shop_users_id')->unsigned();
             $table->timestamps();
         });
     }

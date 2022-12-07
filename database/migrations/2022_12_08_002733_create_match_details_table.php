@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('state', 250);
             $table->string('Type', 50);
             $table->string('friend_list', 250);
-            $table->bigInteger('relation_shop_users_id');
+            $table->bigInteger('relation_shop_users_id')->unsigned();
             $table->timestamps();
         });
     }

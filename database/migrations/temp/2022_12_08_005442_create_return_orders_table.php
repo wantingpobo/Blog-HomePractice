@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('return_order_number', 50);
             $table->string('refund_to', 50);
             $table->string('reason', 50);
-            $table->bigInteger('orders_order_number');
+            $table->bigInteger('orders_order_number')->unsigned();
             $table->decimal('refund_amount', 18, 4);
             $table->datetime('return_request_date');
             $table->datetime('refund_agree_date');
