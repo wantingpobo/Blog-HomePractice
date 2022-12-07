@@ -34,3 +34,19 @@ Route::namespace ('App\Http\Controllers\Api')->group(function () {
     Route::ApiResource('items', 'ItemController');
 
 });
+//指令:php artisan make:controller SiteController
+//一次套用所有resouce的七種方法
+//指令:php artisan route:list確認
+
+//指令:php artisan make:controller Api/PostController --api
+// Route::ApiResource('posts', 'App\Http\Controllers\Api\PostController');
+
+Route::Any('/getclientpics', 'App\Http\Controllers\Api\PostController@getfiles');
+
+// Route::ApiResource('items', 'App\Http\Controllers\Api\ItemController');
+
+Route::namespace ('App\Http\Controllers\Api')->group(function () {
+    // Route::ApiResource('posts', 'PostController');
+    Route::ApiResource('items', 'ItemController');
+
+});

@@ -8,5 +8,3 @@
 {{ $global }}
 
 {{ $multi }}
-
-

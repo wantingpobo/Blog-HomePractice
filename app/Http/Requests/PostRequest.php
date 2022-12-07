@@ -24,11 +24,8 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'subject' => 'required | max:50 | string ',
-            'category' => 'required | integer',
-            'desc' => 'required | max:400 | string',
-            'sort' => 'required | integer',
-
+            'title' => 'required | max:10',
+            'desc' => 'required',
         ];
     }
 }
