@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('cgies', function (Blueprint $table) {
-            $table->renameColum('subject', 'title');
+            $table->renameColumn('subject', 'title');
             $table->integer('sort')->nullable()->default(null)->change();
+            $table->text('content')->nullable();
+            $table->bigInteger('article_id')->nullable();
+            $table->timestamp('enabled_at')->nullable();
+
         });
     }
 
@@ -27,8 +31,12 @@ return new class extends Migration
     public function down()
     {
         Schema::table('cgies', function (Blueprint $table) {
-            $table->renameColum('title', 'subject');
+            $table->renameColumn('title', 'subject');
             $table->integer('sort')->nullable(false)->defult(0)->change();
+            $table->dropColumn('content');
+            $table->dropColumn('article_id');
+            $table->dropColumn('enabled_at');
+
         });
     }
 };
