@@ -13,10 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::namespace ('App\Http\Controllers')->group(function () {
+    // Route::get('pics', 'Usercontroller@show');
+    Route::get('/exm1120', 'SiteController@test');
+    Route::get('/pics', 'Usercontroller@inc');
+    Route::resource('/posts', 'PostController');
+    Route::any('/any', 'PostController@doany');
+    Route::resource('/articles', 'ArticleController');
+
 });
 
+route::get('/url', function () {
+    //取得網址
+    // return url('/pics');
+    return action([Usercontroller::class, 'inc']);
+});
 Route::namespace ('App\Http\Controllers')->group(function () {
     // Route::get('pics', 'Usercontroller@show');
     Route::get('/exm1120', 'SiteController@test');
